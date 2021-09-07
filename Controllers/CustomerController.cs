@@ -18,7 +18,7 @@ namespace weRentvideo.Controllers
         // GET: Customer
         public async Task<ActionResult> Index()
         {
-            return View(await db.CustomerModels.ToListAsync());
+            return View(await db.CustomerModels.Include(c=> c.MembershipModelsId).ToListAsync());
         }
 
         // GET: Customer/Details/5
@@ -47,7 +47,7 @@ namespace weRentvideo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,LastName,DOB,PhoneNo,Email")] CustomerModels customerModels)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,LastName,DOB,PhoneNo,Email,MembershipFK")] CustomerModels customerModels)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace weRentvideo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,LastName,DOB,PhoneNo,Email")] CustomerModels customerModels)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,LastName,DOB,PhoneNo,Email,MembershipFK")] CustomerModels customerModels)
         {
             if (ModelState.IsValid)
             {
