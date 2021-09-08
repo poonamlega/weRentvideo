@@ -8,6 +8,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using weRentvideo.Models;
+using weRentvideo.ViewModels;
 
 namespace weRentvideo.Controllers
 {
@@ -61,17 +62,20 @@ namespace weRentvideo.Controllers
 
         // GET: Customer/Edit/5
         public async Task<ActionResult> Edit(int? id)
-        {
+        {       
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            CustomerModels customerModels = await db.CustomerModels.FindAsync(id);
-            if (customerModels == null)
+
+            EditViewModel editVM = new EditViewModel();
+            editVM.customer = await db.CustomerModels.FindAsync(id); 
+            editVM.membershipIds = db.MembershipModels.Select(a => a.Id).ToList();
+            if (editVM.customer == null)
             {
                 return HttpNotFound();
             }
-            return View(customerModels);
+            return View(editVM);
         }
 
         // POST: Customer/Edit/5
@@ -79,15 +83,16 @@ namespace weRentvideo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,LastName,DOB,PhoneNo,Email,MembershipFK")] CustomerModels customerModels)
+        public async Task<ActionResult> Edit(EditViewModel customerModels)
         {
+            CustomerModels customerModel = customerModels.customer;
             if (ModelState.IsValid)
             {
-                db.Entry(customerModels).State = EntityState.Modified;
+                db.Entry(customerModel).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(customerModels);
+            return View(customerModel);
         }
 
         // GET: Customer/Delete/5

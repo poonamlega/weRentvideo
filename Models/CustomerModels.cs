@@ -17,15 +17,14 @@ namespace weRentvideo.Models
         public string Name { get; set; }
         public string LastName { get; set; }
         public DateTime DOB { get; set; }
-
+      
         [Required]
         public string PhoneNo { get; set; }
         public string Email { get; set; }
         public int MembershipFK { get; set; }
 
         [ForeignKey("MembershipFK")]
-        public virtual MembershipModels MembershipModelsId { get; set; }
-
+        public virtual MembershipModels MembershipModelsId { get; set; }      
         //public int DeptID { get; set; } //<-- You forgot to add this
         //[ForeignKey("DeptID")]
         //public virtual DepartmentModel DID { get; set; }
