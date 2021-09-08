@@ -40,7 +40,10 @@ namespace weRentvideo.Controllers
         // GET: Customer/Create
         public ActionResult Create()
         {
-            return View();
+            EditViewModel editVM = new EditViewModel();
+           
+            editVM.membershipIds =  db.MembershipModels.Select(a => a.Id).ToList();
+            return View(editVM);
         }
 
         // POST: Customer/Create
@@ -48,16 +51,17 @@ namespace weRentvideo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,LastName,DOB,PhoneNo,Email,MembershipFK")] CustomerModels customerModels)
+        public async Task<ActionResult> Create(EditViewModel customerModels)
         {
+            CustomerModels customerModels1 = customerModels.customer;
             if (ModelState.IsValid)
             {
-                db.CustomerModels.Add(customerModels);
+                db.CustomerModels.Add(customerModels1);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(customerModels);
+            return View(customerModels1);
         }
 
         // GET: Customer/Edit/5
@@ -69,7 +73,7 @@ namespace weRentvideo.Controllers
             }
 
             EditViewModel editVM = new EditViewModel();
-            editVM.customer = await db.CustomerModels.FindAsync(id); 
+            editVM.customer = await db.CustomerModels.FindAsync(id);
             editVM.membershipIds = db.MembershipModels.Select(a => a.Id).ToList();
             if (editVM.customer == null)
             {
