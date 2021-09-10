@@ -47,7 +47,7 @@ namespace weRentvideo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,RDate")] MovieModels movieModels)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Name,RDate,Genre,NumberInStock")] MovieModels movieModels)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace weRentvideo.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,RDate")] MovieModels movieModels)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,RDate,Genre,NumberInStock")] MovieModels movieModels)
         {
             if (ModelState.IsValid)
             {
