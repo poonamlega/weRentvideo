@@ -23,6 +23,7 @@ namespace weRentvideo.Models
                 return Name + " " + LastName;
             }
         }
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime DOB { get; set; }
       
         [Required]
