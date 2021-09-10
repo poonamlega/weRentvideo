@@ -11,6 +11,7 @@ namespace weRentvideo.ViewModels
     public class EditViewModel
     {
         public CustomerModels customer { get; set; }
-        public List<int> membershipIds { get; set; }
+        public List<int> MembershipIds { get; set; }
+       
     }
 }

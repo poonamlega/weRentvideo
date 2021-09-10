@@ -41,8 +41,9 @@ namespace weRentvideo.Controllers
         public ActionResult Create()
         {
             EditViewModel editVM = new EditViewModel();
-           
-            editVM.membershipIds =  db.MembershipModels.Select(a => a.Id).ToList();
+
+            editVM.MembershipIds =  db.MembershipModels.Select(a => a.Id).ToList();
+            ViewBag.MembershipDropdown = db.MembershipModels.Select(x => new { x.Id, x.MembershipName }).ToList();
             return View(editVM);
         }
 
@@ -74,7 +75,8 @@ namespace weRentvideo.Controllers
 
             EditViewModel editVM = new EditViewModel();
             editVM.customer = await db.CustomerModels.FindAsync(id);
-            editVM.membershipIds = db.MembershipModels.Select(a => a.Id).ToList();
+            editVM.MembershipIds = db.MembershipModels.Select(a => a.Id).ToList();
+            ViewBag.MembershipDropdown = db.MembershipModels.Select(x => new { x.Id, x.MembershipName }).ToList();
             if (editVM.customer == null)
             {
                 return HttpNotFound();
@@ -98,7 +100,7 @@ namespace weRentvideo.Controllers
             }
             return View(customerModel);
         }
-
+   
         // GET: Customer/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
@@ -131,6 +133,7 @@ namespace weRentvideo.Controllers
             ViewBag.Message = "Your customer page.";
             return RedirectToAction("Index");
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

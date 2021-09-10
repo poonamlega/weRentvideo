@@ -196,6 +196,22 @@
     <Compile Include="Migrations\202109070806225_FKCustomer.Designer.cs">
       <DependentUpon>202109070806225_FKCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109081225097_EditviewModel.cs" />
+    <Compile Include="Migrations\202109081225097_EditviewModel.Designer.cs">
+      <DependentUpon>202109081225097_EditviewModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109081533028_NameToMembership.cs" />
+    <Compile Include="Migrations\202109081533028_NameToMembership.Designer.cs">
+      <DependentUpon>202109081533028_NameToMembership.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109091150312_membershipName.cs" />
+    <Compile Include="Migrations\202109091150312_membershipName.Designer.cs">
+      <DependentUpon>202109091150312_membershipName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202109091650553_datatypeIdChange.cs" />
+    <Compile Include="Migrations\202109091650553_datatypeIdChange.Designer.cs">
+      <DependentUpon>202109091650553_datatypeIdChange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomerModels.cs" />
@@ -310,6 +326,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109070806225_FKCustomer.resx">
       <DependentUpon>202109070806225_FKCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109081225097_EditviewModel.resx">
+      <DependentUpon>202109081225097_EditviewModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109081533028_NameToMembership.resx">
+      <DependentUpon>202109081533028_NameToMembership.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109091150312_membershipName.resx">
+      <DependentUpon>202109091150312_membershipName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109091650553_datatypeIdChange.resx">
+      <DependentUpon>202109091650553_datatypeIdChange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
