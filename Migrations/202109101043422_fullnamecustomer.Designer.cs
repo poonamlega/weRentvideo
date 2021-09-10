@@ -7,13 +7,13 @@ namespace weRentvideo.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class datatypeIdChange : IMigrationMetadata
+    public sealed partial class fullnamecustomer : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(datatypeIdChange));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(fullnamecustomer));
         
         string IMigrationMetadata.Id
         {
-            get { return "202109091650553_datatypeIdChange"; }
+            get { return "202109101043422_fullnamecustomer"; }
         }
         
         string IMigrationMetadata.Source

@@ -208,9 +208,9 @@
     <Compile Include="Migrations\202109091150312_membershipName.Designer.cs">
       <DependentUpon>202109091150312_membershipName.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202109091650553_datatypeIdChange.cs" />
-    <Compile Include="Migrations\202109091650553_datatypeIdChange.Designer.cs">
-      <DependentUpon>202109091650553_datatypeIdChange.cs</DependentUpon>
+    <Compile Include="Migrations\202109101043422_fullnamecustomer.cs" />
+    <Compile Include="Migrations\202109101043422_fullnamecustomer.Designer.cs">
+      <DependentUpon>202109101043422_fullnamecustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -336,8 +336,8 @@
     <EmbeddedResource Include="Migrations\202109091150312_membershipName.resx">
       <DependentUpon>202109091150312_membershipName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109091650553_datatypeIdChange.resx">
-      <DependentUpon>202109091650553_datatypeIdChange.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202109101043422_fullnamecustomer.resx">
+      <DependentUpon>202109101043422_fullnamecustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

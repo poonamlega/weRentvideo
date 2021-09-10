@@ -12,12 +12,8 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.FullName)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-
         <th>
             @Html.DisplayNameFor(model => model.PhoneNo)
         </th>
@@ -34,12 +30,9 @@
     {
         <tr>
             <td>
-                @Html.ActionLink(item.Name, "Details", new { id = item.Id + item.LastName })
+                @Html.ActionLink(item.FullName, "Details", new { id = item.Id })
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-
+           
             <td>
                 @Html.DisplayFor(modelItem => item.PhoneNo)
             </td>
