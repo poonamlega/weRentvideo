@@ -169,6 +169,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\GenreController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MembershipController.cs" />
@@ -208,17 +209,18 @@
     <Compile Include="Migrations\202109091150312_membershipName.Designer.cs">
       <DependentUpon>202109091150312_membershipName.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202109101410102_fullnamecustomerr.cs" />
-    <Compile Include="Migrations\202109101410102_fullnamecustomerr.Designer.cs">
-      <DependentUpon>202109101410102_fullnamecustomerr.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202109101501039_movieGenre.cs" />
     <Compile Include="Migrations\202109101501039_movieGenre.Designer.cs">
       <DependentUpon>202109101501039_movieGenre.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202109120844085_FK.cs" />
+    <Compile Include="Migrations\202109120844085_FK.Designer.cs">
+      <DependentUpon>202109120844085_FK.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CustomerModels.cs" />
+    <Compile Include="Models\GenreModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MembershipModels.cs" />
@@ -226,6 +228,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\EditViewModel.cs" />
+    <Compile Include="ViewModels\GenreDropDownViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -298,6 +301,11 @@
     <Content Include="Views\Membership\Details.cshtml" />
     <Content Include="Views\Membership\Edit.cshtml" />
     <Content Include="Views\Membership\Index.cshtml" />
+    <Content Include="Views\Genre\Create.cshtml" />
+    <Content Include="Views\Genre\Delete.cshtml" />
+    <Content Include="Views\Genre\Details.cshtml" />
+    <Content Include="Views\Genre\Edit.cshtml" />
+    <Content Include="Views\Genre\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -340,11 +348,11 @@
     <EmbeddedResource Include="Migrations\202109091150312_membershipName.resx">
       <DependentUpon>202109091150312_membershipName.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202109101410102_fullnamecustomerr.resx">
-      <DependentUpon>202109101410102_fullnamecustomerr.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202109101501039_movieGenre.resx">
       <DependentUpon>202109101501039_movieGenre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202109120844085_FK.resx">
+      <DependentUpon>202109120844085_FK.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

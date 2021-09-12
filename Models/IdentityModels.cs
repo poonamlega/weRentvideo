@@ -34,6 +34,8 @@ namespace weRentvideo.Models
 
         public System.Data.Entity.DbSet<weRentvideo.Models.MovieModels> MovieModels { get; set; }
 
-        public System.Data.Entity.DbSet<weRentvideo.Models.MembershipModels> MembershipModels { get; set; }    
+        public System.Data.Entity.DbSet<weRentvideo.Models.MembershipModels> MembershipModels { get; set; }
+
+        public System.Data.Entity.DbSet<weRentvideo.Models.GenreModels> GenreModels { get; set; }
     }
 }

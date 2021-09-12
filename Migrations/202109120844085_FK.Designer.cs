@@ -7,13 +7,13 @@ namespace weRentvideo.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class fullnamecustomerr : IMigrationMetadata
+    public sealed partial class FK : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(fullnamecustomerr));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FK));
         
         string IMigrationMetadata.Id
         {
-            get { return "202109101410102_fullnamecustomerr"; }
+            get { return "202109120844085_FK"; }
         }
         
         string IMigrationMetadata.Source

@@ -33,8 +33,6 @@ namespace weRentvideo.Models
 
         [ForeignKey("MembershipFK")]
         public virtual MembershipModels MembershipModelsId { get; set; }      
-        //public int DeptID { get; set; } //<-- You forgot to add this
-        //[ForeignKey("DeptID")]
-        //public virtual DepartmentModel DID { get; set; }
+       
     }
 }

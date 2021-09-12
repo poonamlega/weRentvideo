@@ -8,127 +8,111 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using weRentvideo.Models;
-using weRentvideo.ViewModels;
 
 namespace weRentvideo.Controllers
 {
-    public class MovieController : Controller
+    public class GenreController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: Movie
+        // GET: Genre
         public async Task<ActionResult> Index()
         {
-            return View(await db.MovieModels.ToListAsync());
+            return View(await db.GenreModels.ToListAsync());
         }
 
-        // GET: Movie/Details/5
+        // GET: Genre/Details/5
         public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MovieModels movieModels = await db.MovieModels.FindAsync(id);
-     
-            if (movieModels == null)
+            GenreModels genreModels = await db.GenreModels.FindAsync(id);
+            if (genreModels == null)
             {
                 return HttpNotFound();
             }
-            return View(movieModels);
+            return View(genreModels);
         }
 
-        // GET: Movie/Create
+        // GET: Genre/Create
         public ActionResult Create()
         {
-            GenreDropDownViewModel GenreVM = new GenreDropDownViewModel();
-            GenreVM.GenreIds = db.GenreModels.Select(a => a.Id).ToList();
-            ViewBag.GenreDD = db.GenreModels.Select(x => new { x.Id, x.GenreType }).ToList();
-            return View(GenreVM);
+            return View();
         }
 
-        // POST: Movie/Create
+        // POST: Genre/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(GenreDropDownViewModel movieModels)
+        public async Task<ActionResult> Create([Bind(Include = "Id,GenreType")] GenreModels genreModels)
         {
-            MovieModels GM = movieModels.Movie;
-           
             if (ModelState.IsValid)
             {
-                db.MovieModels.Add(GM);
+                db.GenreModels.Add(genreModels);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
-            return View(GM);
+            return View(genreModels);
         }
 
-        // GET: Movie/Edit/5
+        // GET: Genre/Edit/5
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MovieModels movieModels = await db.MovieModels.FindAsync(id);
-            if (movieModels == null)
+            GenreModels genreModels = await db.GenreModels.FindAsync(id);
+            if (genreModels == null)
             {
                 return HttpNotFound();
             }
-            return View(movieModels);
+            return View(genreModels);
         }
 
-        // POST: Movie/Edit/5
+        // POST: Genre/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,RDate,Genre,NumberInStock")] MovieModels movieModels)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,GenreType")] GenreModels genreModels)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(movieModels).State = EntityState.Modified;
+                db.Entry(genreModels).State = EntityState.Modified;
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            return View(movieModels);
+            return View(genreModels);
         }
 
-        // GET: Movie/Delete/5
+        // GET: Genre/Delete/5
         public async Task<ActionResult> Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            MovieModels movieModels = await db.MovieModels.FindAsync(id);
-            if (movieModels == null)
+            GenreModels genreModels = await db.GenreModels.FindAsync(id);
+            if (genreModels == null)
             {
                 return HttpNotFound();
             }
-            return View(movieModels);
+            return View(genreModels);
         }
 
-        // POST: Movie/Delete/5
+        // POST: Genre/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
-            MovieModels movieModels = await db.MovieModels.FindAsync(id);
-            db.MovieModels.Remove(movieModels);
+            GenreModels genreModels = await db.GenreModels.FindAsync(id);
+            db.GenreModels.Remove(genreModels);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
-        }
-
-
-        /// get:movie
-
-        public ActionResult Movie()
-        {
-
             return RedirectToAction("Index");
         }
 
